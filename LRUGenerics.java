@@ -30,6 +30,7 @@ public class LRUGenerics <K, V> {
     
     public void addToList(CacheItem<K, V> node)
     {
+	//insert at the top of the list
         if(head!=null)
         {
         node.next = head;
@@ -58,13 +59,12 @@ public class LRUGenerics <K, V> {
        
     }
     public V get(K key) 
-    {
-    	
+    {  	
     	
       
         if(cacheMap.containsKey(key))
         {
-        	CacheItem<K,V> node = cacheMap.get(key);
+            CacheItem<K,V> node = cacheMap.get(key);
             remove(node);
             addToList(node);
             return node.value;
